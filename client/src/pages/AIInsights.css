@@ -1,0 +1,111 @@
+.ai-insights {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.ai-insights h1 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  color: #7f8c8d;
+  font-size: 1rem;
+  transition: color 0.3s, border-color 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.tab:hover {
+  color: #2c3e50;
+}
+
+.tab.active {
+  color: #3498db;
+  border-bottom-color: #3498db;
+}
+
+.insights-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-height: 400px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+}
+
+.empty-state p {
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+}
+
+.analysis-result {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.result-header h2 {
+  color: #2c3e50;
+}
+
+.result-content {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.result-content pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+.medical-summary {
+  background: #e8f4f8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.medical-summary h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.medical-summary ul {
+  list-style: none;
+}
+
+.medical-summary li {
+  padding: 0.5rem 0;
+  color: #555;
+}
