@@ -10,12 +10,13 @@
 }
 
 .insurance-header h1 {
-  color: #2c3e50;
+  color: #1a1a1a;
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .insurance-header p {
-  color: #7f8c8d;
+  color: #6b7280;
   font-size: 1.1rem;
 }
 
@@ -27,14 +28,15 @@
 .intro-card {
   background: white;
   padding: 3rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   max-width: 600px;
 }
 
 .intro-card h2 {
-  color: #2c3e50;
+  color: #1a1a1a;
   margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 .intro-card ul {
@@ -44,14 +46,14 @@
 
 .intro-card li {
   padding: 0.75rem 0;
-  color: #555;
+  color: #374151;
   display: flex;
   align-items: center;
 }
 
 .intro-card li:before {
   content: "✓";
-  color: #27ae60;
+  color: #10b981;
   font-weight: bold;
   margin-right: 0.75rem;
   font-size: 1.2rem;
@@ -60,14 +62,18 @@
 .recommendations-result {
   background: white;
   padding: 2.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .result-header {
@@ -78,20 +84,22 @@
 }
 
 .result-header h2 {
-  color: #2c3e50;
+  color: #1a1a1a;
+  font-weight: 700;
 }
 
 .profile-summary {
-  background: #e8f4f8;
+  background: #eef2ff;
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: 2rem;
-  border-left: 4px solid #3498db;
+  border-left: 4px solid #4f46e5;
 }
 
 .profile-summary h3 {
-  color: #2c3e50;
+  color: #1a1a1a;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .profile-grid {
@@ -107,20 +115,21 @@
 
 .profile-item label {
   font-weight: 500;
-  color: #7f8c8d;
+  color: #6b7280;
   font-size: 0.875rem;
   margin-bottom: 0.25rem;
 }
 
 .profile-item span {
-  color: #2c3e50;
+  color: #1a1a1a;
   font-size: 1rem;
+  font-weight: 500;
 }
 
 .recommendations-content {
-  background: #f8f9fa;
+  background: #f5f5f7;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: 2rem;
 }
 
@@ -128,19 +137,19 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   font-family: inherit;
-  color: #2c3e50;
+  color: #1a1a1a;
   line-height: 1.6;
 }
 
 .disclaimer {
-  background: #fff3cd;
+  background: #fef3c7;
   padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #ffc107;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
 }
 
 .disclaimer p {
-  color: #856404;
+  color: #92400e;
   font-size: 0.9rem;
   margin: 0;
 }

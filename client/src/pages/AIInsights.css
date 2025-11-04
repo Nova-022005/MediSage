@@ -5,15 +5,16 @@
 }
 
 .ai-insights h1 {
-  color: #2c3e50;
+  color: #1a1a1a;
   margin-bottom: 2rem;
+  font-weight: 700;
 }
 
 .tabs {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 2rem;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 .tab {
@@ -21,26 +22,28 @@
   border: none;
   padding: 1rem 1.5rem;
   cursor: pointer;
-  color: #7f8c8d;
+  color: #6b7280;
   font-size: 1rem;
+  font-weight: 500;
   transition: color 0.3s, border-color 0.3s;
   border-bottom: 3px solid transparent;
 }
 
 .tab:hover {
-  color: #2c3e50;
+  color: #1a1a1a;
 }
 
 .tab.active {
-  color: #3498db;
-  border-bottom-color: #3498db;
+  color: #4f46e5;
+  border-bottom-color: #4f46e5;
+  font-weight: 600;
 }
 
 .insights-content {
   background: white;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   min-height: 400px;
 }
 
@@ -50,7 +53,7 @@
 }
 
 .empty-state p {
-  color: #7f8c8d;
+  color: #6b7280;
   margin-bottom: 2rem;
 }
 
@@ -59,8 +62,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .result-header {
@@ -71,13 +78,14 @@
 }
 
 .result-header h2 {
-  color: #2c3e50;
+  color: #1a1a1a;
+  font-weight: 700;
 }
 
 .result-content {
-  background: #f8f9fa;
+  background: #f5f5f7;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: 2rem;
 }
 
@@ -85,20 +93,21 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   font-family: inherit;
-  color: #2c3e50;
+  color: #1a1a1a;
   line-height: 1.6;
 }
 
 .medical-summary {
-  background: #e8f4f8;
+  background: #eef2ff;
   padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #3498db;
+  border-radius: 12px;
+  border-left: 4px solid #4f46e5;
 }
 
 .medical-summary h3 {
-  color: #2c3e50;
+  color: #1a1a1a;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .medical-summary ul {
@@ -107,5 +116,5 @@
 
 .medical-summary li {
   padding: 0.5rem 0;
-  color: #555;
+  color: #374151;
 }

@@ -19,46 +19,45 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
+      <div className="max-w-full mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-3xl font-extrabold bg-gradient-to-r from-teal-600 to-cyan-500 text-transparent bg-clip-text">
-          MediSage
+        <div className="text-2xl font-bold text-[#1A1A1A]">
+          🩺 MediSage
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8 text-lg font-medium text-gray-700">
-          <Link to="/" className="relative group">
-            Dashboard
-            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-teal-600 transition-all group-hover:w-full"></span>
+        <div className="hidden md:flex space-x-10 text-base font-medium text-[#6B7280] absolute left-1/2 transform -translate-x-1/2">
+          <a href="#how-it-works" className="hover:text-[#4F46E5] transition duration-300">
+            How it works
+          </a>
+          <a href="#features" className="hover:text-[#4F46E5] transition duration-300">
+            Features
+          </a>
+          <Link to="/dashboard" className="hover:text-[#4F46E5] transition duration-300">
+            Use Cases
           </Link>
-          <Link to="/upload" className="relative group">
-            Upload
-            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-teal-600 transition-all group-hover:w-full"></span>
-          </Link>
-          <Link to="/ai-insights" className="relative group">
-            AI Insights
-            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-teal-600 transition-all group-hover:w-full"></span>
-          </Link>
-          <Link to="/insurance" className="relative group">
-            Insurance
-            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-teal-600 transition-all group-hover:w-full"></span>
-          </Link>
+          <a href="#about" className="hover:text-[#4F46E5] transition duration-300">
+            Contact
+          </a>
+          <a href="https://github.com/Nova-022005/MediSage" target="_blank" rel="noopener noreferrer" className="hover:text-[#4F46E5] transition duration-300 flex items-center gap-2">
+            View on Github
+          </a>
         </div>
 
         {/* Desktop Buttons */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden md:flex space-x-3 items-center">
           <Link
             to="/login"
-            className="text-gray-700 px-4 py-2 font-medium rounded-xl border border-teal-500 hover:bg-teal-50 transition duration-300"
+            className="text-[#1A1A1A] px-5 py-2.5 font-medium rounded-xl border-2 border-[#E5E7EB] hover:bg-[#1A1A1A] hover:text-white transition duration-300 inline-flex items-center justify-center"
           >
-            Login
+            Log in
           </Link>
           <Link
             to="/register"
-            className="bg-teal-600 text-white px-5 py-2 rounded-xl shadow hover:bg-teal-500 transition duration-300"
+            className="bg-[#4F46E5] text-white px-5 py-2.5 rounded-xl font-medium shadow-sm hover:bg-[#4338CA] hover:shadow-md transition-all duration-300 inline-flex items-center justify-center"
           >
-            Register
+            Sign up for demo
           </Link>
         </div>
 
@@ -66,54 +65,53 @@ const Navbar = () => {
         <div className="md:hidden relative">
           <button
             onClick={toggleMenu}
-            className="text-3xl text-teal-600 focus:outline-none"
+            className="text-3xl text-[#1A1A1A] focus:outline-none"
           >
             ☰
           </button>
 
           <div
             ref={menuRef}
-            className={`absolute right-0 mt-3 w-48 bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden transform transition-all duration-300 z-50 ${
-              menuOpen
-                ? "opacity-100 scale-100 pointer-events-auto"
-                : "opacity-0 scale-95 pointer-events-none"
-            }`}
+            className={`absolute right-0 mt-3 w-48 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 z-50 ${menuOpen
+              ? "opacity-100 scale-100 pointer-events-auto"
+              : "opacity-0 scale-95 pointer-events-none"
+              }`}
           >
-            <Link
-              to="/"
-              className="block px-4 py-2 text-gray-800 hover:bg-teal-50"
+            <a
+              href="#how-it-works"
+              className="block px-4 py-2 text-[#6B7280] hover:bg-[#F5F5F7]"
             >
-              Dashboard
-            </Link>
-            <Link
-              to="/upload"
-              className="block px-4 py-2 text-gray-800 hover:bg-teal-50"
+              How it works
+            </a>
+            <a
+              href="#features"
+              className="block px-4 py-2 text-[#6B7280] hover:bg-[#F5F5F7]"
             >
-              Upload
-            </Link>
+              Features
+            </a>
             <Link
-              to="/ai-insights"
-              className="block px-4 py-2 text-gray-800 hover:bg-teal-50"
+              to="/dashboard"
+              className="block px-4 py-2 text-[#6B7280] hover:bg-[#F5F5F7]"
             >
-              AI Insights
+              Use Cases
             </Link>
-            <Link
-              to="/insurance"
-              className="block px-4 py-2 text-gray-800 hover:bg-teal-50"
+            <a
+              href="#about"
+              className="block px-4 py-2 text-[#6B7280] hover:bg-[#F5F5F7]"
             >
-              Insurance
-            </Link>
+              Contact
+            </a>
             <Link
               to="/login"
-              className="block px-4 py-2 text-gray-800 hover:bg-teal-50"
+              className="block px-4 py-2 text-[#6B7280] hover:bg-[#F5F5F7]"
             >
-              Login
+              Log in
             </Link>
             <Link
               to="/register"
-              className="block px-4 py-2 bg-teal-600 text-white hover:bg-teal-500 text-center"
+              className="block px-4 py-2 bg-[#4F46E5] text-white hover:bg-[#4338CA] text-center"
             >
-              Register
+              Sign up for demo
             </Link>
           </div>
         </div>
