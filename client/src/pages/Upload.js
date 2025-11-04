@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { documentService } from '../services/api';
+import { localStorageService } from '../services/localStorageService';
 import { useNavigate } from 'react-router-dom';
 import './Upload.css';
 
@@ -42,23 +42,29 @@ const Upload = () => {
     setLoading(true);
 
     try {
-      const data = new FormData();
-      data.append('document', file);
-      data.append('title', formData.title);
-      data.append('documentType', formData.documentType);
-      data.append('description', formData.description);
-      data.append('documentDate', formData.documentDate);
-      data.append('tags', JSON.stringify(formData.tags.split(',').map(t => t.trim()).filter(t => t)));
-      data.append('metadata', JSON.stringify({
-        doctor: formData.doctor,
-        hospital: formData.hospital,
-        diagnosis: formData.diagnosis,
-        medications: formData.medications.split(',').map(m => m.trim()).filter(m => m),
-      }));
+      // Convert file to base64 for local storage
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        const documentData = {
+          ...formData,
+          fileName: file.name,
+          fileType: file.type,
+          fileSize: file.size,
+          fileData: reader.result, // base64 data
+          tags: formData.tags.split(',').map(t => t.trim()).filter(t => t),
+          metadata: {
+            doctor: formData.doctor,
+            hospital: formData.hospital,
+            diagnosis: formData.diagnosis,
+            medications: formData.medications.split(',').map(m => m.trim()).filter(m => m),
+          },
+        };
 
-      await documentService.upload(data);
-      setSuccess(true);
-      setTimeout(() => navigate('/dashboard'), 2000);
+        await localStorageService.saveDocument(documentData);
+        setSuccess(true);
+        setTimeout(() => navigate('/dashboard'), 1500);
+      };
+      reader.readAsDataURL(file);
     } catch (err) {
       setError(err.response?.data?.error || 'Upload failed');
     } finally {
@@ -70,10 +76,10 @@ const Upload = () => {
     <div className="upload-container">
       <div className="upload-card">
         <h2>Upload Medical Document</h2>
-        
+
         {error && <div className="error-message">{error}</div>}
         {success && <div className="success-message">Document uploaded successfully! Redirecting...</div>}
-        
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Document Title *</label>

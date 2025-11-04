@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { documentService } from '../services/api';
+import { localStorageService } from '../services/localStorageService';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
@@ -20,10 +20,10 @@ const Dashboard = () => {
 
   const loadDocuments = async () => {
     try {
-      const response = await documentService.getAll();
+      const response = await localStorageService.getAllDocuments();
       const docs = response.data;
       setDocuments(docs);
-      
+
       setStats({
         total: docs.length,
         prescriptions: docs.filter(d => d.documentType === 'prescription').length,

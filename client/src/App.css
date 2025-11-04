@@ -5,12 +5,12 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f5;
+  background-color: #f5f5f7;
 }
 
 .App {
@@ -19,10 +19,10 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: #2c3e50;
-  color: white;
+  background-color: #ffffff;
+  color: #1a1a1a;
   padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -37,7 +37,7 @@ body {
 .nav-logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #3498db;
+  color: #1a1a1a;
   text-decoration: none;
 }
 
@@ -48,13 +48,14 @@ body {
 }
 
 .nav-link {
-  color: white;
+  color: #6b7280;
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 500;
 }
 
 .nav-link:hover {
-  color: #3498db;
+  color: #1a1a1a;
 }
 
 .nav-user {
@@ -64,62 +65,73 @@ body {
 }
 
 .btn-logout {
-  background-color: #e74c3c;
+  background-color: #ef4444;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-weight: 500;
 }
 
 .btn-logout:hover {
-  background-color: #c0392b;
+  background-color: #dc2626;
 }
 
 /* Common Button Styles */
 .btn-primary {
-  background-color: #3498db;
+  background-color: #4f46e5;
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #2980b9;
+  background-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:disabled {
-  background-color: #95a5a6;
+  background-color: #9ca3af;
   cursor: not-allowed;
 }
 
 .btn-secondary {
-  background-color: #95a5a6;
-  color: white;
-  border: none;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border: 2px solid #e5e7eb;
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
 .btn-secondary:hover {
-  background-color: #7f8c8d;
+  background-color: #f5f5f7;
+  border-color: #1a1a1a;
 }
 
 .btn-link {
   background: none;
   border: none;
-  color: #3498db;
+  color: #4f46e5;
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
   font-size: 1rem;
+  font-weight: 500;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
 }
 
 /* Loading and Messages */
@@ -129,29 +141,31 @@ body {
   align-items: center;
   height: 100vh;
   font-size: 1.5rem;
-  color: #7f8c8d;
+  color: #6b7280;
 }
 
 .loading {
   text-align: center;
   padding: 2rem;
-  color: #7f8c8d;
+  color: #6b7280;
 }
 
 .error-message {
-  background-color: #e74c3c;
-  color: white;
+  background-color: #fee2e2;
+  color: #991b1b;
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 1rem;
+  border: 1px solid #fca5a5;
 }
 
 .success-message {
-  background-color: #27ae60;
-  color: white;
+  background-color: #d1fae5;
+  color: #065f46;
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 1rem;
+  border: 1px solid #6ee7b7;
 }
 
 /* Form Styles */
@@ -162,8 +176,8 @@ body {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #2c3e50;
+  font-weight: 600;
+  color: #1a1a1a;
 }
 
 .form-group input,
@@ -171,22 +185,24 @@ body {
 .form-group textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
   font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #3498db;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .form-group small {
   display: block;
   margin-top: 0.25rem;
-  color: #7f8c8d;
+  color: #6b7280;
   font-size: 0.875rem;
 }
 
@@ -202,6 +218,7 @@ body {
   justify-content: flex-end;
   margin-top: 2rem;
 }
+
 body {
   padding-top: 5rem; /* Prevents content from hiding under navbar */
 }
