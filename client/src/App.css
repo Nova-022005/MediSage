@@ -202,3 +202,6 @@ body {
   justify-content: flex-end;
   margin-top: 2rem;
 }
+body {
+  padding-top: 5rem; /* Prevents content from hiding under navbar */
+}
