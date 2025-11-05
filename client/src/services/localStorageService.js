@@ -147,6 +147,41 @@ class LocalStorageService {
         localStorage.removeItem('token');
     }
 
+    forgotPassword(email) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const users = this.getUsers();
+                const user = users.find(u => u.email === email);
+
+                if (!user) {
+                    reject({ 
+                        response: { 
+                            data: { 
+                                error: 'No account found with this email address. Please check your email or register.' 
+                            } 
+                        } 
+                    });
+                    return;
+                }
+
+                // In a real app, you'd send an email here
+                // For now, we'll just log it to console
+                console.log('Password reset requested for:', email);
+                console.log('User password is:', user.password);
+                console.log('Note: In production, send email with password reset link');
+
+                resolve({ 
+                    data: { 
+                        message: 'Password reset information has been sent to your email.',
+                        userFound: true,
+                        // Only for development - remove in production
+                        password: user.password
+                    } 
+                });
+            }, 500);
+        });
+    }
+
     // Document Management
     getDocuments() {
         const currentUser = this.getCurrentUser();

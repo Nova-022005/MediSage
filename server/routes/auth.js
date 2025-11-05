@@ -90,6 +90,39 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Forgot Password
+router.post('/forgot-password', async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // Find user
+    const user = await User.findOne({ email });
+    
+    if (user) {
+      // In a real application, you would:
+      // 1. Generate a password reset token
+      // 2. Send an email with the reset link
+      // 3. Store the token in the database with an expiration time
+
+      // For now, we'll log the password (NOT RECOMMENDED FOR PRODUCTION)
+      // You should integrate with nodemailer or another email service
+      console.log('Password reset requested for:', email);
+      console.log('User found:', user.name);
+      console.log('Note: In production, send email with password reset link');
+    } else {
+      console.log('Password reset requested for non-existent email:', email);
+    }
+
+    // Always return success to prevent email enumeration (security best practice)
+    res.json({
+      message: 'If an account exists with this email, a password reset link has been sent.',
+    });
+  } catch (error) {
+    console.error('Forgot password error:', error);
+    res.status(500).json({ error: 'An error occurred. Please try again later.' });
+  }
+});
+
 // Get current user profile
 router.get('/profile', authMiddleware, async (req, res) => {
   try {
@@ -104,7 +137,7 @@ router.get('/profile', authMiddleware, async (req, res) => {
 router.put('/profile', authMiddleware, async (req, res) => {
   try {
     const { name, dateOfBirth, bloodGroup, allergies, chronicConditions } = req.body;
-    
+
     const user = await User.findByIdAndUpdate(
       req.userId,
       { name, dateOfBirth, bloodGroup, allergies, chronicConditions },

@@ -62,7 +62,7 @@ const Register = () => {
     try {
       const { confirmPassword, ...registerData } = formData;
       await register(registerData);
-      navigate('/dashboard');
+      navigate('/login');
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed');
     } finally {
@@ -80,7 +80,7 @@ const Register = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Full Name</label>
+            <label>Full Name <span style={{ color: '#EF4444' }}>*</span></label>
             <input
               type="text"
               name="name"
@@ -92,7 +92,7 @@ const Register = () => {
           </div>
 
           <div className="form-group">
-            <label>Email</label>
+            <label>Email <span style={{ color: '#EF4444' }}>*</span></label>
             <input
               type="email"
               name="email"
@@ -104,7 +104,7 @@ const Register = () => {
           </div>
 
           <div className="form-group">
-            <label>Password</label>
+            <label>Password <span style={{ color: '#EF4444' }}>*</span></label>
             <div className="password-input-wrapper">
               <input
                 type={showPassword ? "text" : "password"}
@@ -142,7 +142,7 @@ const Register = () => {
           </div>
 
           <div className="form-group">
-            <label>Confirm Password</label>
+            <label>Confirm Password <span style={{ color: '#EF4444' }}>*</span></label>
             <div className="password-input-wrapper">
               <input
                 type={showConfirmPassword ? "text" : "password"}
@@ -166,12 +166,13 @@ const Register = () => {
           </div>
 
           <div className="form-group">
-            <label>Date of Birth</label>
+            <label>Date of Birth <span style={{ color: '#EF4444' }}>*</span></label>
             <input
               type="date"
               name="dateOfBirth"
               value={formData.dateOfBirth}
               onChange={handleChange}
+              required
             />
           </div>
 

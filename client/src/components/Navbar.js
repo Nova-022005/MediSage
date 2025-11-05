@@ -34,9 +34,9 @@ const Navbar = () => {
           <a href="#features" className="hover:text-[#4F46E5] transition duration-300">
             Features
           </a>
-          <Link to="/dashboard" className="hover:text-[#4F46E5] transition duration-300">
+          <a href="#use-cases" className="hover:text-[#4F46E5] transition duration-300">
             Use Cases
-          </Link>
+          </a>
           <a href="#about" className="hover:text-[#4F46E5] transition duration-300">
             Contact
           </a>
@@ -89,12 +89,12 @@ const Navbar = () => {
             >
               Features
             </a>
-            <Link
-              to="/dashboard"
+            <a
+              href="#use-cases"
               className="block px-4 py-2 text-[#6B7280] hover:bg-[#F5F5F7]"
             >
               Use Cases
-            </Link>
+            </a>
             <a
               href="#about"
               className="block px-4 py-2 text-[#6B7280] hover:bg-[#F5F5F7]"

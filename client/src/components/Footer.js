@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -28,7 +29,7 @@ const Footer = () => {
               <a href="#features" className="text-[#9CA3AF] hover:text-white transition duration-300">Features</a>
             </li>
             <li>
-              <Link to="/dashboard" className="text-[#9CA3AF] hover:text-white transition duration-300">Use Cases</Link>
+              <a href="#use-cases" className="text-[#9CA3AF] hover:text-white transition duration-300">Use Cases</a>
             </li>
           </ul>
         </div>
@@ -38,17 +39,29 @@ const Footer = () => {
           <h4 className="text-lg font-semibold">Connect With Us</h4>
           <p className="text-[#9CA3AF] text-sm">Let's revolutionize healthcare with intelligent data and care.</p>
           <div className="flex space-x-6 text-2xl">
-            <a href="https://github.com/Nova-022005/MediSage" target="_blank" rel="noopener noreferrer" className="text-[#9CA3AF] hover:text-white transition duration-300"><Github className="w-6 h-6" /></a>
-            <a href="#" className="text-[#9CA3AF] hover:text-white transition duration-300"><Linkedin className="w-6 h-6" /></a>
-            <a href="#" className="text-[#9CA3AF] hover:text-white transition duration-300"><Twitter className="w-6 h-6" /></a>
-            <a href="mailto:support@medisage.ai" className="text-[#9CA3AF] hover:text-white transition duration-300"><Mail className="w-6 h-6" /></a>
+            <a href="https://github.com/Nova-022005/MediSage" target="_blank" rel="noopener noreferrer" className="text-[#9CA3AF] hover:text-[#FFD700] transition duration-300"><Github className="w-6 h-6" /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-[#9CA3AF] hover:text-[#0A66C2] transition duration-300"><Linkedin className="w-6 h-6" /></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-[#9CA3AF] hover:text-white transition duration-300"><FaXTwitter className="w-6 h-6" /></a>
+            <a href="mailto:support@medisage.ai" className="text-[#9CA3AF] hover:text-[#EA4335] transition duration-300"><Mail className="w-6 h-6" /></a>
           </div>
-          <p className="text-xs text-[#9CA3AF] mt-2">Made with  by MediSage Team</p>
+          <p className="text-xs text-[#9CA3AF] mt-4">Made with love by MediSage Team</p>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="mt-12 border-t border-[#374151] pt-6 text-center text-[#9CA3AF] text-sm"> {new Date().getFullYear()} MediSage. All rights reserved.</div>
+      <div className="mt-12 border-t border-[#374151] pt-6">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-[#9CA3AF] text-sm">
+            <span>© {new Date().getFullYear()} MediSage. All rights reserved.</span>
+            <span className="hidden md:inline">•</span>
+            <a href="#privacy" className="hover:text-white transition duration-300 underline">Privacy Policy</a>
+            <span className="hidden md:inline">•</span>
+            <a href="#terms" className="hover:text-white transition duration-300 underline">Terms of Service</a>
+            <span className="hidden md:inline">•</span>
+            <a href="#cookies" className="hover:text-white transition duration-300 underline">Cookies Settings</a>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };
