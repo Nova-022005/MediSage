@@ -18,14 +18,14 @@ const ForgotPassword = () => {
 
         try {
             const response = await localStorageService.forgotPassword(email);
-            
+
             if (response.data.password) {
                 // Show password in success message (only for development)
                 setSuccess(`Your password is: ${response.data.password}`);
             } else {
                 setSuccess('Password reset email has been sent! Please check your inbox.');
             }
-            
+
             setTimeout(() => {
                 navigate('/login');
             }, 5000);

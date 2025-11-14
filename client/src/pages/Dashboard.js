@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { localStorageService } from '../services/localStorageService';
 import { useNavigate } from 'react-router-dom';
+import DashboardNavbar from '../components/DashboardNavbar';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -50,70 +51,71 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="dashboard">
-      <div className="dashboard-header">
-        <h1>Medical Dashboard</h1>
-        <button className="btn-primary" onClick={() => navigate('/upload')}>
-          Upload New Document
-        </button>
-      </div>
+    <>
+      <DashboardNavbar />
+      <div className="dashboard">
+        <div className="dashboard-welcome">
+          <h1>Welcome back! 👋</h1>
+          <p>Here's an overview of your medical records</p>
+        </div>
 
-      <div className="stats-grid">
-        <div className="stat-card">
-          <h3>{stats.total}</h3>
-          <p>Total Documents</p>
-        </div>
-        <div className="stat-card">
-          <h3>{stats.prescriptions}</h3>
-          <p>Prescriptions</p>
-        </div>
-        <div className="stat-card">
-          <h3>{stats.reports}</h3>
-          <p>Lab Reports</p>
-        </div>
-        <div className="stat-card">
-          <h3>{stats.scans}</h3>
-          <p>Scans</p>
-        </div>
-      </div>
-
-      <div className="dashboard-actions">
-        <button className="btn-secondary" onClick={() => navigate('/ai-insights')}>
-          Get AI Health Insights
-        </button>
-        <button className="btn-secondary" onClick={() => navigate('/insurance')}>
-          Insurance Recommendations
-        </button>
-      </div>
-
-      <div className="documents-section">
-        <h2>Recent Documents</h2>
-        {documents.length === 0 ? (
-          <div className="empty-state">
-            <p>No documents uploaded yet</p>
-            <button className="btn-primary" onClick={() => navigate('/upload')}>
-              Upload Your First Document
-            </button>
+        <div className="stats-grid">
+          <div className="stat-card">
+            <h3>{stats.total}</h3>
+            <p>Total Documents</p>
           </div>
-        ) : (
-          <div className="documents-grid">
-            {documents.slice(0, 6).map((doc) => (
-              <div key={doc._id} className="document-card" onClick={() => navigate(`/document/${doc._id}`)}>
-                <div className="document-type-badge">{doc.documentType}</div>
-                <h3>{doc.title}</h3>
-                <p className="document-date">{formatDate(doc.documentDate)}</p>
-                {doc.description && <p className="document-description">{doc.description}</p>}
-              </div>
-            ))}
+          <div className="stat-card">
+            <h3>{stats.prescriptions}</h3>
+            <p>Prescriptions</p>
           </div>
-        )}
-        {documents.length > 6 && (
-          <button className="btn-link" onClick={() => navigate('/documents')}>
-            View all {documents.length} documents →
+          <div className="stat-card">
+            <h3>{stats.reports}</h3>
+            <p>Lab Reports</p>
+          </div>
+          <div className="stat-card">
+            <h3>{stats.scans}</h3>
+            <p>Scans</p>
+          </div>
+        </div>
+
+        <div className="dashboard-actions">
+          <button className="btn-secondary" onClick={() => navigate('/ai-insights')}>
+            Get AI Health Insights
           </button>
-        )}
+          <button className="btn-secondary" onClick={() => navigate('/insurance')}>
+            Insurance Recommendations
+          </button>
+        </div>
+
+        <div className="documents-section">
+          <h2>Recent Documents</h2>
+          {documents.length === 0 ? (
+            <div className="empty-state">
+              <p>No documents uploaded yet</p>
+              <button className="btn-primary" onClick={() => navigate('/upload')}>
+                Upload Your First Document
+              </button>
+            </div>
+          ) : (
+            <div className="documents-grid">
+              {documents.slice(0, 6).map((doc) => (
+                <div key={doc._id} className="document-card" onClick={() => navigate(`/document/${doc._id}`)}>
+                  <div className="document-type-badge">{doc.documentType}</div>
+                  <h3>{doc.title}</h3>
+                  <p className="document-date">{formatDate(doc.documentDate)}</p>
+                  {doc.description && <p className="document-description">{doc.description}</p>}
+                </div>
+              ))}
+            </div>
+          )}
+          {documents.length > 6 && (
+            <button className="btn-link" onClick={() => navigate('/documents')}>
+              View all {documents.length} documents →
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

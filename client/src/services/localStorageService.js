@@ -1,4 +1,5 @@
 // Local Storage Service - stores data in browser instead of backend
+
 class LocalStorageService {
     constructor() {
         this.USERS_KEY = 'medisage_users';
@@ -135,9 +136,7 @@ class LocalStorageService {
                 this.saveUsers(users);
 
                 const { password: _, ...updatedUser } = users[userIndex];
-                this.setCurrentUser(updatedUser);
-
-                resolve({ data: updatedUser });
+                this.setCurrentUser(updatedUser); resolve({ data: updatedUser });
             }, 300);
         });
     }
@@ -154,12 +153,12 @@ class LocalStorageService {
                 const user = users.find(u => u.email === email);
 
                 if (!user) {
-                    reject({ 
-                        response: { 
-                            data: { 
-                                error: 'No account found with this email address. Please check your email or register.' 
-                            } 
-                        } 
+                    reject({
+                        response: {
+                            data: {
+                                error: 'No account found with this email address. Please check your email or register.'
+                            }
+                        }
                     });
                     return;
                 }
@@ -170,13 +169,13 @@ class LocalStorageService {
                 console.log('User password is:', user.password);
                 console.log('Note: In production, send email with password reset link');
 
-                resolve({ 
-                    data: { 
+                resolve({
+                    data: {
                         message: 'Password reset information has been sent to your email.',
                         userFound: true,
                         // Only for development - remove in production
                         password: user.password
-                    } 
+                    }
                 });
             }, 500);
         });

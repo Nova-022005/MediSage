@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
+import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "../components/Footer";
 import heroImg from "../assets/heroImage.png";
 import secureImg from "../assets/secure.png";
 import chatImg from "../assets/chat.png";
 
 const Home = () => {
+  const { user } = useAuth();
   const [openCard, setOpenCard] = useState(null);
 
   const toggleCard = (index) => {
@@ -123,7 +126,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F5F5F7] text-gray-800">
-      <Navbar />
+      {user ? <DashboardNavbar /> : <Navbar />}
 
       {/* Hero Section */}
       <section className="flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-20 flex-grow relative overflow-hidden bg-[#F5F5F7]">

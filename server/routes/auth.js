@@ -97,7 +97,7 @@ router.post('/forgot-password', async (req, res) => {
 
     // Find user
     const user = await User.findOne({ email });
-    
+
     if (user) {
       // In a real application, you would:
       // 1. Generate a password reset token
