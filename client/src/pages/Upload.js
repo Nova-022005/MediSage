@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { localStorageService } from '../services/localStorageService';
 import { useNavigate } from 'react-router-dom';
+import DashboardNavbar from '../components/DashboardNavbar';
 import './Upload.css';
 
 const Upload = () => {
@@ -73,142 +74,143 @@ const Upload = () => {
   };
 
   return (
-    <div className="upload-container">
-      <div className="upload-card">
-        <h2>Upload Medical Document</h2>
+    <>
+      <DashboardNavbar />
+      <div className="upload-container">
+        <div className="upload-card">
+          <h2>Upload Medical Document</h2>          {error && <div className="error-message">{error}</div>}
+          {success && <div className="success-message">Document uploaded successfully! Redirecting...</div>}
 
-        {error && <div className="error-message">{error}</div>}
-        {success && <div className="success-message">Document uploaded successfully! Redirecting...</div>}
-
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Document Title *</label>
-            <input
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              required
-              placeholder="e.g., Annual Health Checkup Report"
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Document Type *</label>
-            <select
-              name="documentType"
-              value={formData.documentType}
-              onChange={handleChange}
-              required
-            >
-              <option value="prescription">Prescription</option>
-              <option value="lab-report">Lab Report</option>
-              <option value="scan">Scan/X-Ray</option>
-              <option value="discharge-summary">Discharge Summary</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label>File *</label>
-            <input
-              type="file"
-              onChange={handleFileChange}
-              required
-              accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-            />
-            <small>Accepted formats: PDF, JPG, PNG, DOC (Max 10MB)</small>
-          </div>
-
-          <div className="form-group">
-            <label>Document Date</label>
-            <input
-              type="date"
-              name="documentDate"
-              value={formData.documentDate}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Description</label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              placeholder="Brief description of the document"
-              rows="3"
-            />
-          </div>
-
-          <div className="form-row">
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label>Doctor Name</label>
+              <label>Document Title *</label>
               <input
                 type="text"
-                name="doctor"
-                value={formData.doctor}
+                name="title"
+                value={formData.title}
                 onChange={handleChange}
-                placeholder="Dr. Name"
+                required
+                placeholder="e.g., Annual Health Checkup Report"
               />
             </div>
 
             <div className="form-group">
-              <label>Hospital/Clinic</label>
-              <input
-                type="text"
-                name="hospital"
-                value={formData.hospital}
+              <label>Document Type *</label>
+              <select
+                name="documentType"
+                value={formData.documentType}
                 onChange={handleChange}
-                placeholder="Hospital name"
+                required
+              >
+                <option value="prescription">Prescription</option>
+                <option value="lab-report">Lab Report</option>
+                <option value="scan">Scan/X-Ray</option>
+                <option value="discharge-summary">Discharge Summary</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>File *</label>
+              <input
+                type="file"
+                onChange={handleFileChange}
+                required
+                accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+              />
+              <small>Accepted formats: PDF, JPG, PNG, DOC (Max 10MB)</small>
+            </div>
+
+            <div className="form-group">
+              <label>Document Date</label>
+              <input
+                type="date"
+                name="documentDate"
+                value={formData.documentDate}
+                onChange={handleChange}
               />
             </div>
-          </div>
 
-          <div className="form-group">
-            <label>Diagnosis</label>
-            <input
-              type="text"
-              name="diagnosis"
-              value={formData.diagnosis}
-              onChange={handleChange}
-              placeholder="e.g., Type 2 Diabetes"
-            />
-          </div>
+            <div className="form-group">
+              <label>Description</label>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                placeholder="Brief description of the document"
+                rows="3"
+              />
+            </div>
 
-          <div className="form-group">
-            <label>Medications</label>
-            <input
-              type="text"
-              name="medications"
-              value={formData.medications}
-              onChange={handleChange}
-              placeholder="Comma-separated list"
-            />
-          </div>
+            <div className="form-row">
+              <div className="form-group">
+                <label>Doctor Name</label>
+                <input
+                  type="text"
+                  name="doctor"
+                  value={formData.doctor}
+                  onChange={handleChange}
+                  placeholder="Dr. Name"
+                />
+              </div>
 
-          <div className="form-group">
-            <label>Tags</label>
-            <input
-              type="text"
-              name="tags"
-              value={formData.tags}
-              onChange={handleChange}
-              placeholder="Comma-separated tags"
-            />
-          </div>
+              <div className="form-group">
+                <label>Hospital/Clinic</label>
+                <input
+                  type="text"
+                  name="hospital"
+                  value={formData.hospital}
+                  onChange={handleChange}
+                  placeholder="Hospital name"
+                />
+              </div>
+            </div>
 
-          <div className="form-actions">
-            <button type="button" className="btn-secondary" onClick={() => navigate('/dashboard')}>
-              Cancel
-            </button>
-            <button type="submit" className="btn-primary" disabled={loading}>
-              {loading ? 'Uploading...' : 'Upload Document'}
-            </button>
-          </div>
-        </form>
+            <div className="form-group">
+              <label>Diagnosis</label>
+              <input
+                type="text"
+                name="diagnosis"
+                value={formData.diagnosis}
+                onChange={handleChange}
+                placeholder="e.g., Type 2 Diabetes"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Medications</label>
+              <input
+                type="text"
+                name="medications"
+                value={formData.medications}
+                onChange={handleChange}
+                placeholder="Comma-separated list"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Tags</label>
+              <input
+                type="text"
+                name="tags"
+                value={formData.tags}
+                onChange={handleChange}
+                placeholder="Comma-separated tags"
+              />
+            </div>
+
+            <div className="form-actions">
+              <button type="button" className="btn-secondary" onClick={() => navigate('/dashboard')}>
+                Cancel
+              </button>
+              <button type="submit" className="btn-primary" disabled={loading}>
+                {loading ? 'Uploading...' : 'Upload Document'}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

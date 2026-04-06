@@ -78,6 +78,12 @@ const Login = () => {
           <button type="submit" className="btn-primary" disabled={loading}>
             {loading ? 'Logging in...' : 'Login'}
           </button>
+
+          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+            <a href="/forgot-password" style={{ color: '#4F46E5', fontSize: '0.875rem', textDecoration: 'none' }}>
+              Forgot Password?
+            </a>
+          </div>
         </form>
 
         <p className="auth-footer">
